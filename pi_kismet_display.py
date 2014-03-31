@@ -1,4 +1,5 @@
 from Adafruit_CharLCDPlate impoer Adafruit_CharLCDPlate
+from pi_kismet_info import KismetInfo
 
 class KismetDisplay:
     lcd = Adafruit_CharLCDPlate()
@@ -6,6 +7,7 @@ class KismetDisplay:
     screen = []
     col = []
     prevCol = 0
+    info = None
 
     def __init__(self):
         self.lcd.clear()
