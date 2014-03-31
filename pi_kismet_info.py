@@ -22,6 +22,10 @@ class KismetInfo:
         self.parse_xml()
 
     def parse_xml(self):
+        """
+        Parses XML log file and determines total networks, 
+        total using WPA, WEP, or nothing
+        """
         self.doc = etree.parse(self.filename)
         self.root = doc.getroot()
         self.total_networks = len(doc.xpath('//wireless-network/SSID'))
@@ -38,7 +42,11 @@ class KismetInfo:
         self.total_wep = wep
         self.total_wpa = wpa
         self.total_none = none
+
     def refresh(self):
+        """
+        Reparses the XML logfile and updates possible screens
+        """
         self.parse_xml()
         self.screen1[0] = 'Total Networks: '
         self.screen1[1] = '%d' % self.total_networks
