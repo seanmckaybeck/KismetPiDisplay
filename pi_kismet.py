@@ -1,5 +1,7 @@
 import argparse, sys, time
-sys.path.append("/home/pi/Adafruit-Raspberry-Pi-Python-Code/Adafruit_CharLCDPlate")
+from os.path import expanduser
+home = expanduser('~')
+sys.path.append(home+"/Adafruit-Raspberry-Pi-Python-Code/Adafruit_CharLCDPlate")
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
 from pi_kismet_display import KismetDisplay
 
