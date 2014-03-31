@@ -1,4 +1,4 @@
-KismetDisplay
+KismetPiDisplay
 =============
 
 These scripts display information from a Kismet XML log file during a wardrive on the Adafruit LCD for the Raspberry Pi. The more mobile your wardriving setup the better, so why not use a Pi? Carrying around a monitor with your Pi is not ideal so we can use an LCD to display information about gathered networks during the wardrive.
