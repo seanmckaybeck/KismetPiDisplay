@@ -24,7 +24,7 @@ class KismetInfo:
     def parse_xml(self):
         self.doc = etree.parse(self.filename)
         self.root = doc.getroot()
-        self.total_networks = len(root) - 1 # all children are networks except first one which is card info
+        self.total_networks = len(doc.xpath('//wireless-network/SSID'))
         nodes = doc.xpath('//wireless-network/SSID/encryption[1]/text()')
         none = wep = wpa = wps = 0
         # TODO add in checking for WPS. need to do test run with kismet development version
