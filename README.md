@@ -9,9 +9,30 @@ Eventually this script will also display information on discovered networks usin
 
 ## Installation
 
-This code requires that Adafruit's [Raspberry Pi Python Code](https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code) be installed in your home directory on the Raspberry Pi. It really only needs the `Adafruit_CharLCDPlate` directory so you can get rid of the rest of the subdirectories if you want. 
+This code requires that Adafruit's [Raspberry Pi Python Code](https://github.com/adafruit/Adafruit-Raspberry-Pi-Python-Code) be installed in your home directory on the Raspberry Pi.
 
 You should be using Python 2.7+ since the code uses the `argparse` module. It also requires `lxml` be installed. You can install that via pip. 
+
+### Setting up Kismet environment
+
+For those who are new to Kismet, here is how to set everything up on your Pi. This requires a wireless card that supports monitor mode. I use the Alfa `AWUS036H`. This also assumes you are using `Raspbian` as your OS. 
+
+Use the following commands to install the necessities. 
+
+```
+sudo apt-get update
+sudo apt-get install libssl-dev
+wget http://download.aircrack-ng.org/aircrack-ng-1.2-beta1.tar.gz
+tar -zxvf aircrack-ng-1.2-beta1.tar.gz
+cd aircrack-ng-1.2-beta1
+make && sudo make install
+sudo airodump-ng-oui-update
+sudo apt-get -y install iw
+```
+
+After running these commands one-at-a-time you can then put your wireless card into monitor mode using `airmon-ng start wlan0` assuming your wireless card's interface is `wlan0`. This will create an interface called `mon0` which you will give to Kismet. Note that installing these will be SLOW on the Pi. Have patience. 
+
+For learning how to use Kismet do some Googling. 
 
 ## Usage
 
