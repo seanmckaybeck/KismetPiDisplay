@@ -27,9 +27,9 @@ class KismetInfo:
         total using WPA, WEP, or nothing
         """
         self.doc = etree.parse(self.filename)
-        self.root = doc.getroot()
-        self.total_networks = len(doc.xpath('//wireless-network/SSID'))
-        nodes = doc.xpath('//wireless-network/SSID/encryption[1]/text()')
+        self.root = self.doc.getroot()
+        self.total_networks = len(self.doc.xpath('//wireless-network/SSID'))
+        nodes = self.doc.xpath('//wireless-network/SSID/encryption[1]/text()')
         none = wep = wpa = wps = 0
         # TODO add in checking for WPS. need to do test run with kismet development version
         for text in nodes:

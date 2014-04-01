@@ -1,4 +1,4 @@
-from Adafruit_CharLCDPlate impoer Adafruit_CharLCDPlate
+from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
 from pi_kismet_info import KismetInfo
 
 class KismetDisplay:
