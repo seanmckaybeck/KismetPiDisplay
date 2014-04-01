@@ -27,7 +27,7 @@ tar -zxvf aircrack-ng-1.2-beta1.tar.gz
 cd aircrack-ng-1.2-beta1
 make && sudo make install
 sudo airodump-ng-oui-update
-sudo apt-get -y install iw kismet python-dev python-smbus libxml2-dev libxslt-dev
+sudo apt-get -y install iw kismet python-dev python-smbus libxml2-dev libxslt-dev python-rpi.gpio
 curl -O http://python-distribute.org/distribute_setup.py
 sudo python distribute_setup.py
 curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
