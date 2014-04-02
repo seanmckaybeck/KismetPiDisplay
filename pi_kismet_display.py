@@ -10,11 +10,11 @@ class KismetDisplay:
     offset = 0
     maxOffset = 0
     # info = None
-    screen1 = []
-    screen2 = []
-    screen3 = []
-    screen4 = []
-    screen5 = []
+    screen1 = ['no data', 'no data']
+    screen2 = ['no data', 'no data']
+    screen3 = ['no data', 'no data']
+    screen4 = ['no data', 'no data']
+    screen5 = ['no data', 'no data']
 
     def __init__(self):
         self.lcd.clear()
