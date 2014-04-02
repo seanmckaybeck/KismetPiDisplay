@@ -1,5 +1,4 @@
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
-# from pi_kismet_info import KismetInfo
 
 class KismetDisplay:
     lcd = Adafruit_CharLCDPlate()
@@ -9,7 +8,6 @@ class KismetDisplay:
     prevCol = 0
     offset = 0
     maxOffset = 0
-    # info = None
     screen1 = ['no data', 'no data']
     screen2 = ['no data', 'no data']
     screen3 = ['no data', 'no data']
@@ -51,15 +49,6 @@ class KismetDisplay:
         self.screen4[1] = '%d' % none
         self.screen5[0] = 'Total WPS: '
         self.screen5[1] = '%d' % wps
-
-    # def init_info(self):
-    #     """
-    #     Initializes the KismetInfo member variable
-
-    #     filename is the log file from Kismet that will be parsed for data
-    #     """
-    #     self.info = KismetInfo()
-    #     self.display_total()
 
     def display_total(self):
         """
@@ -139,7 +128,6 @@ class KismetDisplay:
         """
         Updates the display based on the mode
         """
-        # self.info.refresh()
         if self.mode == 0: self.display_total()
         elif self.mode == 1: self.display_wpa()
         elif self.mode == 2: self.display_wep()

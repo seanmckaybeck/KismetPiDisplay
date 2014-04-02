@@ -1,7 +1,4 @@
-# import argparse, sys, time
 import sys, time
-# from os.path import expanduser
-# home = expanduser('~')
 sys.path.append("/home/pi/Adafruit-Raspberry-Pi-Python-Code/Adafruit_CharLCDPlate")
 sys.path.append("/home/pi/kismetclient")
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
@@ -16,15 +13,6 @@ lcd = display.lcd
 prevCol = -1
 prev = -1
 lastTime = time.time()
-
-# parser = argparse.ArgumentParser(prog='KismetDisplay', version='1.0')
-# parser.add_argument('-f', '--filename', type=str, help='The XML log file from Kismet')
-# args = parser.parse_args()
-# if not args.filename:
-#     print 'Error: no file specified'
-#     exit(1)
-
-# display.init_info(args.filename)
 
 def shutdown():
     lcd.clear()
