@@ -3,7 +3,7 @@ import sys, time
 # from os.path import expanduser
 # home = expanduser('~')
 sys.path.append("/home/pi/Adafruit-Raspberry-Pi-Python-Code/Adafruit_CharLCDPlate")
-sys.path.append("/home/pi/kismetclient/kismetclient")
+sys.path.append("/home/pi/kismetclient")
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
 from pi_kismet_display import KismetDisplay
 from kismetclient import Client
@@ -48,12 +48,14 @@ def count_crypts(client, name, macaddr, cryptstring):
         elif 'WPS' in cryptstring:
             wpa += 1
             wps += 1
+        total = len(aps)
 
 k.register_handler('DEVICE', count_crypts)
 
 # Listen for button presses
 while True:
     k.listen()
+    display.update_screens(wpa,wep,wps,none,total)
     b = lcd.buttons()
     if b is not prev:
         if lcd.buttonPressed(lcd.SELECT):
