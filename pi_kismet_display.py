@@ -1,5 +1,5 @@
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
-from pi_kismet_info import KismetInfo
+# from pi_kismet_info import KismetInfo
 
 class KismetDisplay:
     lcd = Adafruit_CharLCDPlate()
@@ -9,7 +9,12 @@ class KismetDisplay:
     prevCol = 0
     offset = 0
     maxOffset = 0
-    info = None
+    # info = None
+    screen1 = []
+    screen2 = []
+    screen3 = []
+    screen4 = []
+    screen5 = []
 
     def __init__(self):
         self.lcd.clear()
@@ -35,45 +40,56 @@ class KismetDisplay:
             self.lcd.clear()
             self.lcd.message('error\ndisplaying details ...')
 
+    def update_screens(self, wpa, wep, wps, none, total):
+        self.screen1[0] = 'Total Networks: '
+        self.screen1[1] = '%d' % total
+        self.screen2[0] = 'Total WPA: '
+        self.screen2[1] = '%d' % wpa
+        self.screen3[0] = 'Total WEP: '
+        self.screen3[1] = '%d' % wep
+        self.screen4[0] = 'Total with none: '
+        self.screen4[1] = '%d' % none
+        self.screen5[0] = 'Total WPS: '
+        self.screen5[1] = '%d' % wps
 
-    def init_info(self, filename):
-        """
-        Initializes the KismetInfo member variable
+    # def init_info(self):
+    #     """
+    #     Initializes the KismetInfo member variable
 
-        filename is the log file from Kismet that will be parsed for data
-        """
-        self.info = KismetInfo(filename)
-        self.display_total()
+    #     filename is the log file from Kismet that will be parsed for data
+    #     """
+    #     self.info = KismetInfo()
+    #     self.display_total()
 
     def display_total(self):
         """
         Displays the total number of networks discovered
         """
-        self.display_screen(self.info.screen1)
+        self.display_screen(self.screen1)
 
     def display_wpa(self):
         """
         Displays the total number of networks using WPA
         """
-        self.display_screen(self.info.screen2)
+        self.display_screen(self.screen2)
 
     def display_wep(self):
         """
         Displays the total number of networks using WEP
         """
-        self.display_screen(self.info.screen3)
+        self.display_screen(self.screen3)
 
     def display_none(self):
         """
         Displays the total number of networks with no encryption
         """
-        self.display_screen(self.info.screen4)
+        self.display_screen(self.screen4)
 
     def display_wps(self):
         """
         Displays the total number of networks using WPS
         """
-        self.display_screen(self.info.screen5)
+        self.display_screen(self.screen5)
         
     # the code below this line is taken directly from PiMinerDisplay
     # except for the changes made to update()
@@ -123,7 +139,7 @@ class KismetDisplay:
         """
         Updates the display based on the mode
         """
-        self.info.refresh()
+        # self.info.refresh()
         if self.mode == 0: self.display_total()
         elif self.mode == 1: self.display_wpa()
         elif self.mode == 2: self.display_wep()
