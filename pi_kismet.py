@@ -36,6 +36,8 @@ def count_crypts(client, name, macaddr, cryptstring):
         elif 'WPS' in cryptstring:
             wpa += 1
             wps += 1
+        elif cryptstring == '':
+            none += 1
         total = len(aps)
 
 k.register_handler('DEVICE', count_crypts)
