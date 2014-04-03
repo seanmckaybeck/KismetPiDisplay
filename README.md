@@ -3,7 +3,7 @@ KismetPiDisplay
 
 These scripts display information from a Kismet XML log file during a wardrive on the Adafruit LCD for the Raspberry Pi. The more mobile your wardriving setup the better, so why not use a Pi? Carrying around a monitor with your Pi is not ideal so we can use an LCD to display information about gathered networks during the wardrive.
 
-The script will start by displaying the total number of networks discovered thus far. By pressing the `UP` or `DOWN` buttons you can cycle between the other screens. The `LEFT` and `RIGHT` buttons scroll the text on the screen left or right. The other information that is displayed is the total number of networks using `WPA`, `WEP`, or no encryption. 
+The script will start by displaying the total number of networks discovered thus far. By pressing the `UP` or `DOWN` buttons you can cycle between the other screens. The `LEFT` and `RIGHT` buttons scroll the text on the screen left or right. The other information that is displayed is the total number of networks using `WPS`, `WPA`, `WEP`, or no encryption. 
 
 ## Installation
 
@@ -68,3 +68,11 @@ Sometimes when you run kismet it will give a bunch of errors about your wireless
 ## Licensing
 
 This project uses some code from Adafruit's [PiMiner](https://github.com/adafruit/PiMiner) and as such this project is licensed under GPLv3 like PiMiner. 
+
+## See it in action
+
+Unfortunately I can't embed YouTube videos here, so follow the links to see it in action.
+
+Starting up the code is [simple](https://www.youtube.com/watch?v=C2a5YFlhnfo).
+
+Sorry about the poor quality, but [here is the LCD code in action](https://www.youtube.com/watch?v=Cq7il6wo5so).
